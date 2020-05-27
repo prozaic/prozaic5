@@ -13,24 +13,21 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
 SECRET_KEY = 'yd+#d2j-74kc-rz4gw@_sn%i6m0o4px_nb#v5**gz$-%rlm_-a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False 
 
 ALLOWED_HOSTS = ['127.0.0.1'],
-ALLOWED_HOSTS = ['192.168.2.120'],
+ALLOWED_HOSTS = ['192.168.2.120']
 ALLOWED_HOSTS = ['prozaic2.herokuapp.com']
-
-
 
 
 
@@ -59,7 +56,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'new_site.urls'
@@ -140,18 +136,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 #My settings 
-
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-
-# Extra places for collectstatic to find static files.
-
-
-
-
 
 LOGIN_URL = 'users:login'
 

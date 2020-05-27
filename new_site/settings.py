@@ -27,7 +27,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1'],
 ALLOWED_HOSTS = ['192.168.2.120']
-ALLOWED_HOSTS = ['prozaic2.herokuapp.com']
+ALLOWED_HOSTS = ['prozaic5.herokuapp.com']
 
 
 

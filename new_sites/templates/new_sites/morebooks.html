@@ -1,0 +1,24 @@
+{%extends 'new_sites/upload_book.html'%}
+
+{%block content%}
+
+<div class = 'book-main'> 
+    <div class = 'text-stuff'>
+
+        <p> Book Uploaded Succesfully </p>
+        <form method = 'post' enctype = 'multipart/form-data'>
+            {%csrf_token%}
+            {{form.as_p}}
+            <button class = 'submit'>Upload Book</button>
+        </form>
+
+    </div>
+
+    <div class = 'book-done'>
+          <a href = "{%url 'new_sites:book_list' %}">Finished Uploading</a>
+        
+        
+    </div>
+</div>
+
+{%endblock content%}

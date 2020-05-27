@@ -1,0 +1,79 @@
+{%extends "new_sites/base.html"%}
+
+{%block content%}
+
+
+<p>Topics</p>
+
+
+
+    {%for topic in topics%}
+    <div class = 'top-container'>
+
+<!-- 
+        <div id = 'top-title'>
+            {{topic.title}}
+        </div>
+-->
+        
+        {%if topic.image%} 
+            <img src = "{{topic.image.url}}" alt = "{{topic.title}}">
+
+        {%endif%}
+
+        {% if topic.urllink%}
+            <div class = 'video-link'>
+               
+                   
+                <iframe width="{{ 480 }}" height="{{ 320 }}" src="{{ topic.urllink }}" 
+                    frameborder="0" allowfullscreen>
+                
+                </iframe>
+                
+            </div>
+        {%endif%}
+
+        {% if topic.urllink%}
+            <div class = 'video-link'>
+            
+                
+                <iframe width="{{ 480 }}" height="{{ 320 }}" src="{{ topic.urllink }}" 
+                    frameborder="0" allowfullscreen>
+                
+                </iframe>
+                
+            </div>
+         {%endif%}
+<!--  
+        <div id = 'mentry-text'>
+          
+           
+            {{topic.text|linebreaks}}
+        </div>
+--> 
+        {%if topic.owner == request.user and user.is_authenticated %}
+        <div id = 'mentry-text'>
+            <a href = "{%url 'new_sites:topic_edit' topic.id%}">Edit entry</a>
+            <a href = "{%url 'new_sites:delete_topichome' topic.id%}">Delete topic</a>
+        </div>
+        {% endif %}
+
+        
+     
+    </div>
+    {%empty%}
+         <li>No topics have been added yet.</li>
+    {%endfor%}
+
+
+{%if user.is_authenticated %}
+
+<div class = 'add-book '>
+
+    <a href="{% url 'new_sites:new_topichome'%}">Add Topic</a>
+
+</div>
+
+{%endif%}
+
+{%endblock content%}

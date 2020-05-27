@@ -1,0 +1,15 @@
+{%extends 'new_sites/base.html'%}
+
+{% block content%}
+
+    <p><a href="{% url 'new_sites:topic' topic.id%}">{{topic}}</a></p>
+
+    <p>Edit Entry:</p>
+
+    <form action ="{% url 'new_sites:edit_topic' topic.id%}" method = 'post'>
+        {%csrf_token%}
+        {{form.as_p}}
+        <button name = "submit">Save changes</button>
+    </form>
+
+{%endblock content%}

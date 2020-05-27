@@ -1,0 +1,16 @@
+{%extends 'new_sites/base.html'%}
+
+{%block content%}
+<div class = 'book-main'> 
+    <div class = 'text-stuff'>
+        <form method = 'post' enctype = 'multipart/form-data'>
+            {%csrf_token%}
+            {{form.as_p}}
+            <button class = 'submit'>Upload Book</button>
+        </form>
+
+    </div>
+</div>
+
+
+{%endblock content%}

@@ -1,0 +1,26 @@
+{% extends 'new_sites/base.html' %}
+
+{%block title %} Contact - {{block.super}}{% endblock %}
+
+{%block content%}
+<div class = 'contact-form'> 
+	<div class = 'contact'>
+
+			<p>Contact</p>
+	</div>
+
+	<form role = "form" action="" method = "post">
+
+		{%csrf_token %}
+		<div class = 'email'>
+			{{form.as_p}}
+
+			<button class = "submit">Send</button>
+		</div>
+
+
+
+
+	</form>
+</div>
+{%endblock content%}

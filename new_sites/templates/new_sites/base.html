@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html> 
+<html>
+    <head> 
+
+            <title> Home </title> 
+            <link rel = "stylesheet" type = "text/css" href= {% static 'css/style2.css' %}> 
+
+    </head>
+
+<body>
+    <div class =  "topnav">
+
+            <a href = "{%url 'new_sites:index' %}">HOME</a> </li>
+            <a href = "{%url 'new_sites:topics' %}">VIDEOS</a> </li>
+            <a href = "{%url 'new_sites:book_list' %}">BOOKS</a> </li>
+            <a href = "{%url 'new_sites:contact' %}">CONTACT</a> </li>
+
+            {% if user.is_authenticated%}
+                 .
+
+            <a href="{% url 'users:logout'%}">LOG-OUT</a> </li>
+            {%else%}
+            <a href="{% url 'users:login'%}">LOG-IN</a> </li>
+            <a href="{% url 'users:register'%}">REGISTER</a> </li>
+            {%endif%}
+            
+
+    </div>
+
+    <div class = 'body-text'>
+        {%block content%} {%endblock content%}
+    </div>
+
+</body>
+
+</html>

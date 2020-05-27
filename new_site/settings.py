@@ -27,12 +27,8 @@ SECRET_KEY = 'yd+#d2j-74kc-rz4gw@_sn%i6m0o4px_nb#v5**gz$-%rlm_-a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
-ALLOWED_HOSTS = ['192.168.2.120']
-ALLOWED_HOSTS = ['prozaic2.herokuapp.com']
+
 ALLOWED_HOSTS = ['www.prozaic.ca']
-ALLOWED_HOSTS = ['prozaic.ca']
-ALLOWED_HOSTS = ['http://www.prozaic.ca']
 
 
 

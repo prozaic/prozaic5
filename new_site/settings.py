@@ -26,7 +26,7 @@ SECRET_KEY = 'yd+#d2j-74kc-rz4gw@_sn%i6m0o4px_nb#v5**gz$-%rlm_-a'
 DEBUG = False 
 
 ALLOWED_HOSTS = ['127.0.0.1'],
-ALLOWED_HOSTS = ['192.168.2.120']
+ALLOWED_HOSTS = ['192.168.2.120'],
 ALLOWED_HOSTS = ['prozaic2.herokuapp.com']
 
 
@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'new_site.urls'
@@ -132,13 +133,17 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'),
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media'),
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles'),
 
 MEDIA_URL = '/media/'
 #My settings 
 
 LOGIN_URL = 'users:login'
 
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_FROM_EMAIL = 'Hamidsrh@gmail.com'
 

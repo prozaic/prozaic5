@@ -132,12 +132,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static_root'),
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'),
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media'),
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'C:\Users\R3950X\Desktop\Website_Project2\new_website\media'),
+
 
 MEDIA_URL = '/media/'
 #My settings 

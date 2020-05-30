@@ -29,6 +29,7 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = ['www.prozaic.ca']
+ALLOWED_HOSTS = ['192.168.2.120']
 
 
 
@@ -131,8 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+
 
 
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'),
@@ -147,7 +147,7 @@ MEDIA_URL = '/media/'
 LOGIN_URL = 'users:login'
 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 DEFAULT_FROM_EMAIL = 'Hamidsrh@gmail.com'
 
@@ -166,8 +166,16 @@ EMAIL_USE_TLS = True
 AWS_ACCESS_KEY_ID = 'AKIA34R6PJ64S2YWXO6D'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'prozaic2'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
 AWS_S3_FILE_OVERWRITE = False
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
 AWS_DEFAULT_ACL = None
+
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
@@ -175,3 +183,5 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)

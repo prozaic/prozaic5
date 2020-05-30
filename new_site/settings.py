@@ -29,7 +29,6 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = ['www.prozaic.ca']
-ALLOWED_HOSTS = ['192.168.2.120']
 
 
 

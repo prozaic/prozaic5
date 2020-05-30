@@ -45,9 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'new_sites',
-
-    'storages'
-    
 ]
 
 

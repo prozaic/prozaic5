@@ -11,8 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import dj_database_url
-import django_heroku
+
 
 
 
@@ -31,7 +30,7 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = ['www.prozaic.ca']
-ALLOWED_HOSTS = ['192.168.2.120']
+
 
 
 
@@ -134,8 +133,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 
-django_heroku.settings(locals())
-
 
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'),
 ]
@@ -168,7 +165,7 @@ EMAIL_USE_TLS = True
 AWS_ACCESS_KEY_ID = 'AKIA34R6PJ64S2YWXO6D'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'prozaic2'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
 
 AWS_S3_FILE_OVERWRITE = False
 

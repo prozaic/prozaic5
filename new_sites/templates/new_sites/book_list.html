@@ -23,11 +23,11 @@
                         <a href="{{book.link}}">[Book Link]</a>
                     </div>
 
-                    {%if book.owner == request.user and user.is_authenticated %}
+                    
 
                         <a href = "{%url 'new_sites:delete_book' book.id%}">Delete Book</a>
                         
-                    {%endif%}
+                    
                 </div>
 
           

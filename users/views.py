@@ -18,7 +18,7 @@ def register(request):
             return redirect('new_sites:index')
 
     context={'form': form}
-    return render(request, 'registration/register.html',context)
+    return render(request, 'registration/registerFAILED.html',context)
 # Create your views here.
 
 def logout_view(request):

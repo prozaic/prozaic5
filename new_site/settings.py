@@ -29,7 +29,7 @@ SECRET_KEY = 'yd+#d2j-74kc-rz4gw@_sn%i6m0o4px_nb#v5**gz$-%rlm_-a'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['www.prozaic.ca']
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -98,6 +98,10 @@ DATABASES = {
         'PORT': '5432', 
     }
 }
+
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation

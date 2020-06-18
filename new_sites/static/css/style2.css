@@ -201,8 +201,6 @@ body {
 	display:flex;
 	flex-wrap:wrap;
 
-
-
 }
 
 
@@ -211,10 +209,19 @@ body {
 	border:thin	#00FF00 solid;
 	text-align:center;
 	margin:1%;
+
+	
 	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 30ch;
+
+
+
 
 }
 
+
+}
 .video-link{
 
 	align-items: center;
@@ -226,10 +233,10 @@ body {
 
 	border:thin	#00FF00 solid;
 	text-align:center;
-	margin:1%;
-	padding:2%;
-
-	overflow: hidden;
+	margin-top:1%;
+	margin-bottom:1%;
+	padding-top:2%;
+	padding-bottom:2%;
 	}
 }
 
@@ -240,11 +247,14 @@ body {
 
 .book-order img{
 
-	padding-bottom:20%;
+	margin-top:-24%;
+	padding-bottom:5%;
 	width: 100%;
-	height: auto;
+	height: 500px;
     max-width: 300px; 
-    max-height: 500px;
+	max-height: 500px;
+	
+	object-fit:scale-down;
 
 }
 .book-order a:hover{ 
@@ -259,7 +269,7 @@ body {
 	padding-bottom:10%;
 	font-family:Helvetica;
 	font-size: 1.0em;
-	padding:2%;
+
 
 
 
@@ -268,11 +278,9 @@ body {
 .book-author h3{ 
 
 	font-size: 1.0em;
-	word-break: break-all;
 
 
 }
-
 
 .book-title h2{ 
 
@@ -473,6 +481,7 @@ textarea{
 .book-title{ 
 
 	font-family:Helvetica;
+
 	
 }
 
@@ -480,7 +489,11 @@ textarea{
 
 	font-family:Arial, Helvetica, sans-serif;
 	font-size: 1.5em;
+	margin-left: 3%;
+	margin-right: 3%;
 
+	overflow: hidden;
+    white-space: nowrap;
 
 }
 .book-title a:hover{
@@ -503,7 +516,7 @@ textarea{
 	font-family:"Lucida Console", Courier, monospace;
 	color:white;
 
-	font-size:2em;
+	font-size:1.5em;
 }
 
 .add-book a{ 

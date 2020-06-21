@@ -296,7 +296,7 @@ def contact(request):
 
 				"Your website" + '',
 
-				['hamidsrh@gmail.com'],
+				['malcolmshar@gmail.com'],
 
 				headers = {'Reply-To': contact_email}
 

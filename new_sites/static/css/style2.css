@@ -7,15 +7,6 @@
 
 @font-face{
 
-	src: url(fonts/Optimal3d.ttf);
-	font-family: dead;
-
-}
-
-
-
-@font-face{
-
 	src: url(fonts/FrontPageNeue.otf);
 	font-family: frontpage;
 
@@ -168,17 +159,22 @@ body {
 }
 
 .top-container{
-	border-right: thin solid #00FF00; 
+	border-right: thin solid #00FF00;
 	border-left: thin solid #00FF00;
 	border-bottom: thin solid #00FF00;
+	text-align:center;
 	color:#00FF00;
 
-	
+	padding-left:10%;
+	padding-right:10%;
 
+	margin-left:20%;
+	margin-right:20%;
 
 
 
 }
+
 
 
 .mid-container{
@@ -188,7 +184,7 @@ body {
 	margin-top:8%;
 
 
-	font-family: tatal;
+	font-family:tatal;
 	padding-left:5%;
 	padding-right:5%;
 
@@ -197,16 +193,6 @@ body {
 
 
 
-@keyframes typing {
-	from { width: 0 }
-	to { width: 100% }
-  }
-  
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-	from, to { border-color: transparent }
-	50% { border-color: orange }
-  }
 @media(min-width:1000px){
 
 	.booklist{
@@ -222,6 +208,7 @@ body {
 	}
 
 
+}
 
 .booklist{
 	margin-left:10%;
@@ -414,10 +401,7 @@ textarea{
 	width: 100%;
 	height: auto;
     max-width: 500px; 
-	max-height: 500px;
-	display: block;
-    margin: 0 auto;
-
+    max-height: 500px;
 }
 
 .top-container input{
@@ -630,37 +614,3 @@ textarea{
 
 
 }
-
-@keyframes fadein {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-moz-keyframes fadein { /* Firefox */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-webkit-keyframes fadein { /* Safari and Chrome */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-o-keyframes fadein { /* Opera */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html> 
+
+<head>
+<style>
+
+
+    html {
+    min-height: 100%;
+    overflow: hidden;
+    }
+
+    .content {
+        display: block;
+        color:#00FF00;
+        height: auto;
+        margin: auto;
+        position: relative;
+        text-align: center;
+        top: 40%;
+        width: -webkit-calc(70%);
+    }
+
+
+    .typewrite {
+    font-size: 80%;
+    border-right: 2px solid rgba(255,255,255,.75);
+    line-height: 1.15;
+    }
+
+    .anim-typewrite {
+    animation: blinkTextCursor 500ms infinite normal;
+    }
+
+    @keyframes blinkTextCursor{
+    from{border-right-color: rgba(255,255,255,.75);}
+    to{border-right-color: transparent;}
+    }
+
+    /* style inspired by Thiago Teles Pereira @thiagoteles */
+        
+</style> 
+    <script>
+        var i = 0;
+        var txt = 'this is not real, and the real world lies somewhere else.';
+
+        function typeWriter() {
+        if (i < txt.length) {
+            document.getElementsByClassName('js-typewrite')[0].innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, 65);
+        }
+        }
+
+        setTimeout(typeWriter, 1000);
+    </script>
+
+</head>
+
+<body>
+
+    <p class="content">
+        <span class="typewrite anim-typewrite js-typewrite"></span>
+    </p>
+
+</body>
+
+</html>

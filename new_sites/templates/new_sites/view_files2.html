@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<title>Untitled Document</title>
+			<script type="text/javascript">
+				$(document).ready(function() {
+			    var timeStart = new Date().getTime();
+    			var timer = setInterval(function() {
+        		var now = new Date().getTime();
+        		var remaining = Math.max(0, 3000 - (now - timeStart));
+        		$("#cntr").html((remaining / 1000).toFixed(1));
+        		if (remaining <= 0) {
+            	clearInterval(timer);
+        		}
+   			 }, 100);
+    
+    $("#hide").delay(7200).hide(1);
+});
+
+
+			setTimeout(function(){
+    			document.getElementById('myimage').style.display = 'block';
+			},7220);
+			</script>
+		</head>
+
+	<body>
+
+		{%if topic.image%} 
+
+			<img id="hide" src="{{topic.image.url}}" alt = "{{topic.title}}" width="29" height="39">
+
+		{%endif%}
+
+		<img id="myimage" src="{% static 'css/SFrozen.jpg' %}" style="display:none" alt = "{{topic.title}}" >
+	</body>
+
+</html>
+

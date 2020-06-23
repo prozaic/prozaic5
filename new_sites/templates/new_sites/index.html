@@ -1,79 +1,79 @@
+
 {%extends "new_sites/base.html"%}
-
+{% load static %}
 {%block content%}
+<!DOCTYPE HTML>
+<html> 
+    <script>
+        setTimeout(function() {
+     document.getElementById('hide').style.display='none'
+    }, 7200);
 
+        setTimeout(function(){
+    			document.getElementById('myimage').style.display = 'block';
+			},7220);
 
-<p>Topics</p>
+window.onload = function(){start();} 
+    </script>
+<body>
+        {%for topic in topics%}
 
+        <div class = 'top-container'>
 
+            <img id="myimage" src="{% static 'css/SFrozen.jpg' %}" style="display:none" alt = "{{topic.title}}" >
+            {%if topic.image%} 
+                <img id="hide" src="{{topic.image.url}}" alt = "{{topic.title}}" width="29" height="39">
+            {%endif%}
 
-    {%for topic in topics%}
-    <div class = 'top-container'>
-
-<!-- 
-        <div id = 'top-title'>
-            {{topic.title}}
-        </div>
--->
-        
-        {%if topic.image%} 
-            <img src = "{{topic.image.url}}" alt = "{{topic.title}}">
-
-        {%endif%}
-
-        {% if topic.urllink%}
-            <div class = 'video-link'>
-               
-                   
-                <iframe width="{{ 480 }}" height="{{ 320 }}" src="{{ topic.urllink }}" 
-                    frameborder="0" allowfullscreen>
-                
-                </iframe>
-                
-            </div>
-        {%endif%}
-
-        {% if topic.urllink%}
-            <div class = 'video-link'>
             
+        </div>
+
+        <div class="mid-container">
+        	{%include 'new_sites/midtext.html'%}
+        </div>
                 
-                <iframe width="{{ 480 }}" height="{{ 320 }}" src="{{ topic.urllink }}" 
-                    frameborder="0" allowfullscreen>
-                
-                </iframe>
-                
+            {% if topic.urllink%}
+             <div class = 'video-link'>
+                  <iframe width="{{ 480 }}" height="{{ 320 }}" src="{{ topic.urllink }}" frameborder="0" allowfullscreen>
+                  </iframe>
+             </div>
+            {%endif%}
+
+            {% if topic.urllink%}
+                <div class = 'video-link'>
+                    <iframe width="{{ 480 }}" height="{{ 320 }}" src="{{ topic.urllink }}" 
+                        frameborder="0" allowfullscreen>
+                    </iframe>
+                </div>
+            {%endif%}
+
+            {%if topic.owner == request.user and user.is_authenticated %}
+            <div id = 'mentry-text'>
+                <a href = "{%url 'new_sites:topic_edit' topic.id%}">Edit entry</a>
+                <a href = "{%url 'new_sites:delete_topichome' topic.id%}">Delete topic</a>
             </div>
-         {%endif%}
-<!--  
-        <div id = 'mentry-text'>
-          
-           
-            {{topic.text|linebreaks}}
-        </div>
---> 
-        {%if topic.owner == request.user and user.is_authenticated %}
-        <div id = 'mentry-text'>
-            <a href = "{%url 'new_sites:topic_edit' topic.id%}">Edit entry</a>
-            <a href = "{%url 'new_sites:delete_topichome' topic.id%}">Delete topic</a>
-        </div>
-        {% endif %}
+            {% endif %}
 
         
-     
+
+        {%empty%}
+            <li>No topics have been added yet.</li>
+        {%endfor%}
+
+
+    
+
+    {%if user.is_authenticated %}
+
+    <div class = 'add-book '>
+
+        <a href="{% url 'new_sites:new_topichome'%}">Add Topic</a>
+
     </div>
-    {%empty%}
-         <li>No topics have been added yet.</li>
-    {%endfor%}
 
+    {%endif%}
 
-{%if user.is_authenticated %}
+    {%endblock content%}
 
-<div class = 'add-book '>
-
-    <a href="{% url 'new_sites:new_topichome'%}">Add Topic</a>
-
-</div>
-
-{%endif%}
-
-{%endblock content%}
+</body>
+</html>

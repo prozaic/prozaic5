@@ -40,6 +40,7 @@ class Book(models.Model):
     pdf = models.FileField(upload_to ='books/pdfs/')
     cover = models.ImageField(upload_to = 'books/cover/', null = True, blank = True)
     
+    date_added = models.DateTimeField(auto_now_add = True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE) 
 
     def __str__(self):

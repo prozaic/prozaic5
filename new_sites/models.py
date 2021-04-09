@@ -39,8 +39,8 @@ class Book(models.Model):
     link = models.CharField(max_length=5000)
     pdf = models.FileField(upload_to ='books/pdfs/')
     cover = models.ImageField(upload_to = 'books/cover/', null = True, blank = True)
+
     
-    ordered_tasks = TaskItem.objects.order_by('-created_at')
     owner = models.ForeignKey(User, on_delete=models.CASCADE) 
 
     def __str__(self):

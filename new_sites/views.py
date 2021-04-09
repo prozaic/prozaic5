@@ -171,7 +171,7 @@ def upload(request):
     return render(request, 'new_sites/upload.html', context)
 
 def book_list(request):
-    books = Book.objects.all()
+    books = Book.objects.all().order_by('-id')[:10]
 
     return render(request, 'new_sites/book_list.html', {
         'books': books

@@ -10,8 +10,8 @@ from django.core.mail import send_mail
 
 from django.forms import modelformset_factory
 
-from .models import Topic, Book, TopicHome
-from .forms import TopicForm, BookForm, ContactForm, TopicHomeForm
+from .models import Topic, Book, TopicHome, TopicPost
+from .forms import TopicForm, BookForm, ContactForm, TopicHomeForm, TopicPostForm
 
 import os
 from sendgrid import SendGridAPIClient
@@ -91,6 +91,25 @@ def new_topichome(request):
     return render(request, 'new_sites/new_topichome.html', context)
 
 
+
+@login_required
+def new_topicpost(request):
+    if request.method == "POST":
+        form = TopicPostForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            new_topic = form.save(commit = False)
+            new_topic.owner = request.user
+            new_topic.save()
+
+            form.save()
+            return redirect('new_sites:index')
+
+        else:  
+            form = TopicPostForm()
+
+        context = {'form':form}
+        return render(request, 'new_sites/new_topichome.html', context)
 
 def vupload(request):
     if request.method == "POST":

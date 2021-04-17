@@ -26,6 +26,19 @@ class TopicHomeForm(forms.ModelForm):
         self.fields['title'].widget.attrs['placeholder'] = 'Enter title here'
         self.fields['text'].widget.attrs['placeholder'] = 'Enter text here'    
 
+
+class TopicPostForm(forms.ModelForm):
+
+    class Meta: 
+
+        model = TopicPost
+        fields =['title', 'text', 'image']
+
+    def __init__(self, *args, **kwargs):
+        super(TopicHomeForm, self).__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs['placeholder'] = 'Enter title here'
+        self.fields['text'].widget.attrs['placeholder'] = 'Enter text here'    
+
 class BookForm(forms.ModelForm):
 
     class Meta:

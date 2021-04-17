@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Topic, Book, TopicHome
+from .models import Topic, Book, TopicHome, TopicPost
 
 class TopicForm(forms.ModelForm):
 

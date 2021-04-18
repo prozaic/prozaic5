@@ -196,7 +196,7 @@ def book_list(request):
 
 def post_list(request):
 
-    posts = TopicPost.objects.all().order_by('-id')[:10]
+    posts = Book.objects.all().order_by('-id')[:10]
     
     return render(request, 'new_sites/post_list.html', {
         'posts': posts

@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 
 from django.forms import modelformset_factory
 
-from .models import Topic, Book, TopicHome, TopicPost
+from .models import Topic, Book, TopicHome, TopicPost, Booktwo
 from .forms import TopicForm, BookForm, ContactForm, TopicHomeForm, TopicPostForm
 
 import os

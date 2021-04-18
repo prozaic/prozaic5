@@ -202,8 +202,8 @@ def post_list(request):
     context = {'posts': posts}
 
 
-    return render(request, 'new_sites/posts.html', context)
-    
+    return render(request, 'new_sites/post_list.html', context)
+
 @login_required
 def upload_book(request):
 

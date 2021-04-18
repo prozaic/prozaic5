@@ -87,6 +87,25 @@ def new_topichome(request):
     context = {'form':form}
     return render(request, 'new_sites/new_topichome.html', context)
 
+@login_required
+def new_post(request):
+
+    if request.method == "POST":
+       form = TopicPostForm(request.POST, request.FILES)
+       
+       if form.is_valid():
+            new_topic = form.save(commit = False)
+            new_topic.owner = request.user
+            new_topic.save()
+
+            form.save()
+            return redirect('new_sites:post_list')
+    else:
+        form = TopicPostForm()
+        
+    context = {'form':form}
+    return render(request, 'new_sites/new_topic.html', context)
+
 
 
 @login_required

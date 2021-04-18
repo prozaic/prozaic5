@@ -22,6 +22,8 @@ urlpatterns = [
 
     path('new_topic/', views.new_topic, name='new_topic'),
 
+    path('new_post/', views.new_post, name='new_post'),
+
     path('new_topichome/', views.new_topichome, name='new_topichome'),
 
     path('vupload/', views.vupload, name ='vupload'),

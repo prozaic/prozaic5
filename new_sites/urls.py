@@ -30,6 +30,8 @@ urlpatterns = [
 
     path('books/', views.book_list, name = 'book_list'),
 
+    path('posts/', views.post_list, name = 'post_list'),
+
     path('books/uploads', views.upload_book, name = 'upload_book'),
 
     path('books/uploads/more', views.morebooks, name = 'morebooks'),

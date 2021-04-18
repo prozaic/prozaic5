@@ -28,14 +28,11 @@ def index(request):
     topics = TopicHome.objects.all().order_by('-id')[:10]
     context = {'topics': topics}
 
-
     return render(request, 'new_sites/index.html', context)
 
 def topics(request):
 
     topics = Topic.objects.all().order_by('-id')[:10]
-   
-    
     context = {'topics': topics}
 
     return render(request, 'new_sites/topics.html', context)
@@ -54,9 +51,9 @@ def topic(request, topic_id):
     
 @login_required
 def new_topic(request):
+
     if request.method == "POST":
        form = TopicForm(request.POST, request.FILES)
-    
        
        if form.is_valid():
             new_topic = form.save(commit = False)
@@ -198,8 +195,8 @@ def book_list(request):
 
 
 def post_list(request):
-    
-    posts = TopicPost.objects.all().order_by('-id')[:10]
+
+    posts = TopicPost.objects.all()
 
     return render(request, 'new_sites/post_list.html', {
         'posts': posts

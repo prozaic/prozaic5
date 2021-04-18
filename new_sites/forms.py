@@ -35,7 +35,7 @@ class TopicPostForm(forms.ModelForm):
         fields =['title', 'text', 'image']
 
     def __init__(self, *args, **kwargs):
-        super(TopicHomeForm, self).__init__(*args, **kwargs)
+        super(TopicPostForm, self).__init__(*args, **kwargs)
         self.fields['title'].widget.attrs['placeholder'] = 'Enter title here'
         self.fields['text'].widget.attrs['placeholder'] = 'Enter text here'    
 

@@ -33,7 +33,7 @@ class TopicHome(models.Model):
 
     
 class TopicPost(models.Model):
-     
+    
     title = models.CharField(max_length = 200)
     text = models.TextField()
     image = models.ImageField(upload_to = 'image/set/', null = True, blank = True)

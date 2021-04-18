@@ -94,9 +94,9 @@ def new_post(request):
        form = TopicPostForm(request.POST, request.FILES)
        
        if form.is_valid():
-            new_topic = form.save(commit = False)
-            new_topic.owner = request.user
-            new_topic.save()
+            new_post = form.save(commit = False)
+            new_post.owner = request.user
+            new_post.save()
 
             form.save()
             return redirect('new_sites:post_list')
@@ -104,7 +104,7 @@ def new_post(request):
         form = TopicPostForm()
         
     context = {'form':form}
-    return render(request, 'new_sites/new_topic.html', context)
+    return render(request, 'new_sites/new_post.html', context)
 
 
 

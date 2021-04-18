@@ -2,19 +2,20 @@
 
 {% block content%}
 
-    {%for post in posts%}
+    {%if posts%}
+        {%for post in posts%}
+        <div class = 'top-container2'>
 
-    <div class = 'top-container2'>
+            <div id = 'top-title'>
+                {{post.title}}
+            </div>
 
-        <div id = 'top-title'>
-            {{post.title}}
         </div>
-
-    </div>
-
-    {%empty%}
-         <li>No topics have been added yet.</li>
     {%endfor%}
-
+    
+    {%else%} 
+        {%empty%}
+            <li>No topics have been added yet.</li>
+    {%endif%} 
 
 {%endblock%}

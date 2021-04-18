@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 
 from django.forms import modelformset_factory
 
-from .models import Topic, Book, TopicHome, TopicPost, Booktwo
+from .models import Topic, Book, TopicHome, TopicPost
 from .forms import TopicForm, BookForm, ContactForm, TopicHomeForm, TopicPostForm
 
 import os
@@ -196,7 +196,7 @@ def book_list(request):
 
 def post_list(request):
 
-    posts = Booktwo.objects.all().order_by('-id')[:10]
+    posts = TopicPost.objects.all().order_by('-id')[:10]
     
     return render(request, 'new_sites/post_list.html', {
         'posts': posts

@@ -197,6 +197,13 @@ def book_list(request):
     })
 
 
+def post_list(request):
+    posts = TopicPost.objects.all().order_by('-id')[:10]
+    context = {'posts': posts}
+
+
+    return render(request, 'new_sites/posts.html', context)
+    
 @login_required
 def upload_book(request):
 

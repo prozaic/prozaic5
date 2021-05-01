@@ -47,8 +47,6 @@ class BookForm(forms.ModelForm):
 
 
 
-
-
 class ContactForm(forms.Form):
 
 	contact_name = forms.CharField(required = True, label ='Name', widget=forms.TextInput(attrs={'placeholder': 'Enter Name', 'class':'inputarea'}))

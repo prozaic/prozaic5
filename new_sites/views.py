@@ -215,12 +215,10 @@ def book_list(request):
 
 def post_list(request):
 
-    posts = TopicPost()
-    posts.title = "This is a test"
-    posts.save() 
+    posts = TopicPost.objects.oder_by('date_added')
+    context = {'posts': posts}
     
-    return render(request, 'new_sites/post_list.html', {
-        'posts': posts})
+    return render(request, 'new_sites/post_list.html', context)
 
 
 @login_required

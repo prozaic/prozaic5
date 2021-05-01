@@ -1,7 +1,6 @@
 {%extends 'new_sites/base.html'%}
 {% block content%}
 
-    {%if posts%}
         {%for post in posts%}
         <div class = 'top-container2'>
 
@@ -10,10 +9,8 @@
             </div>
 
         </div>
-        {%endfor%}
-    
-    {%else%} 
+        {%empty%} 
             <li>No topics have been added yet.</li>
-    {%endif%} 
+        {% endfor %}
 
 {%endblock%}

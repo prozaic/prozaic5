@@ -214,12 +214,11 @@ def book_list(request):
 
 
 def post_list(request):
-    try:
-        posts = TopicPost.objects.all().order_by('-id')[:10]
-    
-    except TopicPost.DoesNotExist:
-        raise Http404("Poll does not exist")
 
+    posts = TopicPost()
+    posts.title = "This is a test"
+    posts.save() 
+    
     return render(request, 'new_sites/post_list.html', {
         'posts': posts})
 

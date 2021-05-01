@@ -215,7 +215,7 @@ def book_list(request):
 
 def post_list(request):
 
-    posts = TopicPost.objects.oder_by('date_added')
+    posts = TopicPost.objects.order_by('date_added')
     context = {'posts': posts}
     
     return render(request, 'new_sites/post_list.html', context)

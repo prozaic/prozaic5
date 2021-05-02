@@ -11,7 +11,7 @@ from django.core.mail import send_mail
 from django.forms import modelformset_factory
 
 from .models import Topic, Book, TopicHome, TopicPost, TopicHome2
-from .forms import TopicForm, BookForm, ContactForm, TopicHomeForm, TopicPostForm
+from .forms import TopicForm, BookForm, ContactForm, TopicHomeForm, TopicHomeForm2, TopicPostForm
 
 import os
 from sendgrid import SendGridAPIClient

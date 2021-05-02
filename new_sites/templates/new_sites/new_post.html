@@ -3,7 +3,7 @@
 {% block content%}
 
 <div class = 'text-stuff'>
-<p> Add Topic: </p>
+<p>Add Topic:</p>
 
     <form action = "{% url 'new_sites:new_post'%}" method = 'post' enctype = 'multipart/form-data'>
 
@@ -11,7 +11,7 @@
 
         {{form.as_p}}
 
-        <button class = 'submit'> Add topic</button>
+        <button class = 'submit'>Add Topic</button>
 
     </form>
 

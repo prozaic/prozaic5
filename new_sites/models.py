@@ -34,7 +34,8 @@ class TopicHome(models.Model):
 class TopicPost(models.Model):
 
     title = models.CharField(max_length=200)
-    
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
     def _str_(self):
 

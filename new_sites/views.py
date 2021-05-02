@@ -90,7 +90,7 @@ def new_topichome(request):
 @login_required
 def new_topichome2(request):
 
-      if request.method == "POST":
+    if request.method == "POST":
        form = TopicHomeForm2(request.POST, request.FILES)
     
        
@@ -104,8 +104,8 @@ def new_topichome2(request):
     else:
         form = TopicHomeForm2()
         
-        context = {'form':form}
-        return render(request, 'new_sites/new_topichome2.html', context)
+    context = {'form':form}
+    return render(request, 'new_sites/new_topichome2.html', context)
         
    
 

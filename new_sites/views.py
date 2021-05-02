@@ -98,7 +98,7 @@ def new_post(request):
             new_post.save()
 
             form.save()
-            return redirect('new_sites:post_list')
+            return redirect('new_sites:index')
     else:
         form = TopicPostForm()
         

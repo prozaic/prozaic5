@@ -89,22 +89,25 @@ def new_topichome(request):
 
 @login_required
 def new_topichome2(request):
-    if request.method == "POST":
+
+      if request.method == "POST":
        form = TopicHomeForm2(request.POST, request.FILES)
     
        
        if form.is_valid():
-            new_topic = form.save(commit = False)
-            new_topic.owner = request.user
-            new_topic.save()
+            new_post = form.save(commit = False)
+            new_post.owner = request.user
+            new_post.save()
 
             form.save()
             return redirect('new_sites:index')
     else:
         form = TopicHomeForm2()
         
-    context = {'form':form}
-    return render(request, 'new_sites/new_topichome2.html', context)
+        context = {'form':form}
+        return render(request, 'new_sites/new_topichome2.html', context)
+        
+   
 
 @login_required
 def new_post(request):

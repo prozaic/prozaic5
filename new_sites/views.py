@@ -101,7 +101,7 @@ def new_topichome2(request):
             form.save()
             return redirect('new_sites:index')
     else:
-        form = TopicHomeForm()
+        form = TopicHomeForm2()
         
     context = {'form':form}
     return render(request, 'new_sites/new_topichome2.html', context)

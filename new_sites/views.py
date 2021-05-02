@@ -89,13 +89,11 @@ def new_topichome(request):
 
 @login_required
 def new_post(request):
-
     if request.method == "POST":
        form = TopicPostForm(request.POST, request.FILES)
        
        if form.is_valid():
             new_post = form.save(commit = False)
-            new_post.owner = request.user
             new_post.save()
 
             form.save()

@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 
 from django.forms import modelformset_factory
 
-from .models import Topic, Book, TopicHome, TopicPost
+from .models import Topic, Book, TopicHome, TopicPost, TopicHome2
 from .forms import TopicForm, BookForm, ContactForm, TopicHomeForm, TopicPostForm
 
 import os
@@ -86,6 +86,25 @@ def new_topichome(request):
         
     context = {'form':form}
     return render(request, 'new_sites/new_topichome.html', context)
+
+@login_required
+def new_topichome2(request):
+    if request.method == "POST":
+       form = TopicHomeForm2(request.POST, request.FILES)
+    
+       
+       if form.is_valid():
+            new_topic = form.save(commit = False)
+            new_topic.owner = request.user
+            new_topic.save()
+
+            form.save()
+            return redirect('new_sites:index')
+    else:
+        form = TopicHomeForm()
+        
+    context = {'form':form}
+    return render(request, 'new_sites/new_topichome2.html', context)
 
 @login_required
 def new_post(request):
@@ -214,8 +233,8 @@ def book_list(request):
 
 def post_list(request):
 
-    posts = TopicPost.objects.all().order_by('-id')[:10]
-    context = {'posts': posts}
+    topics = TopicHome2.objects.all().order_by('-id')[:10]
+    context = {'topics': topics}
     
     return render(request, 'new_sites/post_list.html', context)
 

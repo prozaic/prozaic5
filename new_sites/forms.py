@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Topic, Book, TopicHome, TopicPost
+from .models import Topic, Book, TopicHome, TopicHome2, TopicPost
 
 class TopicForm(forms.ModelForm):
 
@@ -23,6 +23,18 @@ class TopicHomeForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(TopicHomeForm, self).__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs['placeholder'] = 'Enter title here'
+        self.fields['text'].widget.attrs['placeholder'] = 'Enter text here'    
+
+class TopicHomeForm2(forms.ModelForm):
+
+    class Meta: 
+
+        model = TopicHome2
+        fields =['title', 'text', 'image','urllink']
+
+    def __init__(self, *args, **kwargs):
+        super(TopicHomeForm2, self).__init__(*args, **kwargs)
         self.fields['title'].widget.attrs['placeholder'] = 'Enter title here'
         self.fields['text'].widget.attrs['placeholder'] = 'Enter text here'    
 

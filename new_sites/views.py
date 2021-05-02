@@ -94,6 +94,7 @@ def new_post(request):
        
        if form.is_valid():
             new_post = form.save(commit = False)
+            new_topic.owner = request.user
             new_post.save()
 
             form.save()

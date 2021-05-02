@@ -53,24 +53,13 @@ class TopicPost(models.Model):
     text = models.TextField()
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    image = models.ImageField(upload_to = 'image/set/', null = True, blank = True)
+
     def _str_(self):
 
         return self.title 
 
-"""
-    class TopicPost(models.Model):
 
-        title = models.CharField(max_length = 200)
-        text = models.TextField()
-        image = models.ImageField(upload_to = 'image/set/', null = True, blank = True)
-
-        date_added = models.DateTimeField(auto_now_add = True)
-        owner = models.ForeignKey(User, on_delete=models.CASCADE)
-
-        def __str__(self):
-
-            return self.title[:50]
-"""
 
 class Book(models.Model):
     title = models.CharField(max_length = 100)

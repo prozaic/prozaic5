@@ -46,7 +46,7 @@ class TopicHome2(models.Model):
 
         return self.title[:50]
 
-
+'''
 class TopicPost(models.Model):
 
     title = models.CharField(max_length=200)
@@ -59,7 +59,7 @@ class TopicPost(models.Model):
 
         return self.title 
 
-
+'''
 
 class Book(models.Model):
     title = models.CharField(max_length = 100)

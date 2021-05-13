@@ -311,7 +311,7 @@ def delete_post(request, topichome2_id):
 
 def delete_topichome(request, topic_id):
     
-   topic = TopicHome.objects.get(id = topic_id)
+   topic = TopicHome2.objects.get(id = topic_id)
    topic.delete()
    return redirect('new_sites:index')
 

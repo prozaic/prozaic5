@@ -2,6 +2,7 @@
 {% block content%}
 
         {%for topic in topics%}
+
         <div class = 'top-container2'>
 
             <div id = 'top-title'>
@@ -9,10 +10,27 @@
             </div>
 
         </div>
+
+        <div id = 'mentry-text'>
+            {{topic.text|linebreaks}}
+        </div>
+
+
+        {%if topic.owner == request.user and user.is_authenticated %}
+
+            <a href = "{%url 'new_sites:delete_topic' topic.id%}">Delete topic</a>
+        
+        {% endif %}
+
+
         {%empty%} 
             <li>No topics have been added yet.</li>
         {% endfor %}
 
+        
+
+    {%if user.is_authenticated%}
         <a href="{% url 'new_sites:new_topichome2'%}">Add Post</a>
+    {%endif%}
 
 {%endblock%}

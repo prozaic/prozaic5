@@ -299,6 +299,15 @@ def delete_topic(request, topic_id):
     
     return redirect('new_sites:topics')
 
+@login_required
+def delete_post(request, topic_id):
+    topic = TopicHome2.objects.get(id = topic_id) 
+    topic.delete()
+    
+    return redirect('new_sites:post_list')
+
+
+
 def delete_topichome(request, topic_id):
     
    topic = TopicHome.objects.get(id = topic_id)

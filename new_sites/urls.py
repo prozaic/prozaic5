@@ -16,7 +16,7 @@ urlpatterns = [
 
     path('delete_topic/<int:topic_id>/', views.delete_topic, name = 'delete_topic'),
 
-    path('delete_post/<int:topichome2_id>/', views.delete_post, name = 'delete_post'),
+    path('delete_post/<int:topic_id>/', views.delete_post, name = 'delete_post'),
    
     path('delete_topichome/<int:topic_id>/', views.delete_topichome, name = 'delete_topichome'),   
 

@@ -3,24 +3,101 @@
 {%block title %} Contact - {{block.super}}{% endblock %}
 
 {%block content%}
-<div class = 'contact-form'> 
-	<div class = 'contact'>
 
-			<p>Contact</p>
+
+<div class = 'contact-form'>
+<!--  
+	<div class = 'contact'>
+		<p>Contact</p>
 	</div>
 
 	<form role = "form" action="" method = "post">
-
 		{%csrf_token %}
+
 		<div class = 'email'>
 			{{form.as_p}}
-
 			<button class = "submit">Send</button>
 		</div>
 
-
-
-
 	</form>
+--> 
+
+	<div class = 'reveal-contact'>
+
+		<span class="backemail">moc.liamg@rahsmloclam</span>
+		<style>
+		span.backemail{
+			unicode-bidi: bidi-override;
+			direction: rtl;
+			padding-top:10px;
+		}
+		</style>
+
+
+		<style>  
+			.content {
+				display: block;
+				height: auto;
+				margin: auto;
+				position: relative;
+				text-align: center;
+				top: 40%;
+				width: -webkit-calc(70%);
+			}
+
+			.typewrite {
+			font-size: 100%;
+			border-right: 2px solid rgba(255,255,255,.75);
+			line-height: 1.15;
+			}
+
+			.anim-typewrite {
+			animation: blinkTextCursor 500ms infinite normal;
+			}
+
+			@keyframes blinkTextCursor{
+			from{border-right-color: rgba(255,255,255,.75);}
+			to{border-right-color: transparent;}
+			}
+
+			/* style inspired by Thiago Teles Pereira @thiagoteles */   
+		</style> 
+
+		<script>
+			var i = 0;
+			var txt = '{{topic.summary}}';
+		
+			function typeWriter() {
+				if (i < txt.length) {
+					document.getElementsByClassName('js-typewrite')[0].innerHTML += txt.charAt(i);
+					i++;
+					setTimeout(typeWriter, 65);
+				}
+			}
+		
+			setTimeout(typeWriter, 1000);
+		</script>
+
+		
+		<body>
+		
+			<p class="content">
+				<a href= "https://www.instagram.com/h.pylorii/">[Instagram]</a>
+			</p>
+			<p class="content">
+				<span class="typewrite anim-typewrite js-typewrite"></span>
+			</p>
+		</body>
+
+		
+
+	</div> 
+
+
+
+
 </div>
+
+
+
 {%endblock content%}

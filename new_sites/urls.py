@@ -10,11 +10,13 @@ urlpatterns = [
 
     path('', views.index, name = 'index'),
 
-    path('topics/', views.topics, name = 'topics'),
+    path('videos/', views.videos, name = 'videos'),
     
-    path('topic_edit/<int:topic_id>/', views.topic_edit, name='topic_edit'),
+    path('video_edit/<int:video_id>/', views.video_edit, name='video_edit'),
 
-    path('delete_topic/<int:topic_id>/', views.delete_topic, name = 'delete_topic'),
+    path('post_edit/<int:topic_id>/', views.post_edit, name='post_edit'),
+
+    path('delete_video/<int:topic_id>/', views.delete_video, name = 'delete_video'),
 
     path('delete_post/<int:topic_id>/', views.delete_post, name = 'delete_post'),
    
@@ -27,8 +29,6 @@ urlpatterns = [
     path('new_post/', views.new_post, name='new_post'),
 
     path('new_topichome/', views.new_topichome, name='new_topichome'),
-
-    path('new_topichome2/', views.new_topichome2, name='new_topichome2'),
 
     path('vupload/', views.vupload, name ='vupload'),
 
@@ -44,7 +44,7 @@ urlpatterns = [
 
     path('contacts/', views.contact, name = 'contact')
 
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

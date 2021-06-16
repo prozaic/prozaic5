@@ -146,7 +146,10 @@ USE_TZ = True
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'),
 ]
 
+STATIC_URL = '/media/static/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media'),
+
 
 MEDIA_URL = '/media/'
 
@@ -190,7 +193,8 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-
-
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION) 
+
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)

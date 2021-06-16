@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from new_sites.models import Topic, TopicPost
+from new_sites.models import Videos, TopicPost
 
-admin.site.register(Topic)
+admin.site.register(Videos)
 admin.site.register(TopicPost) 

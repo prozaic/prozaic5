@@ -7,6 +7,21 @@
 
 @font-face{
 
+	src: url(fonts/AnonymousProreg.ttf);
+	font-family: anonymouspro;
+
+}
+
+@font-face{
+
+	src: url(fonts/librebarcode.ttf);
+	font-family: librebarcode;
+
+}
+
+
+@font-face{
+
 	src: url(fonts/FrontPageNeue.otf);
 	font-family: frontpage;
 
@@ -136,7 +151,8 @@ body {
 	margin-top: 30px;
 	padding-bottom:20px;
 	border-bottom:thin solid #00FF00;
-
+	
+	
 }
 
 .topnav a{ 
@@ -148,6 +164,8 @@ body {
 	font-size:1.1em;
 	color: #00FF00;
 	font-family:dead;
+
+	
 } 
 
 .topnav a:hover{ 
@@ -159,6 +177,20 @@ body {
 }
 
 .top-container{
+	border-right: thin solid #00FF00;
+	border-left: thin solid #00FF00;
+	border-bottom: thin solid #00FF00;
+
+
+	padding-left:10%;
+	padding-right:10%;
+
+	margin-left:20%;
+	margin-right:20%;
+
+}
+
+.top-container3{
 	border-right: thin solid #00FF00;
 	border-left: thin solid #00FF00;
 	border-bottom: thin solid #00FF00;
@@ -390,6 +422,7 @@ body {
 
 	font-family:qua;
 	padding:10px;
+	text-align:center;
 	border-bottom: thin solid green;
 	margin-top:50px;
 	font-size:50px;
@@ -397,6 +430,19 @@ body {
 
 }
 
+#post-title{ 
+
+	font-family:librebarcode;
+	padding:10px;
+	text-align:center;
+	border-bottom: thin solid green;
+	margin-top:50px;
+	font-size:50px;
+	color:white;
+
+}
+
+/* Background-colour changes background colour in contact form */
 textarea{
 
 	box-sizing:border-box;
@@ -404,11 +450,17 @@ textarea{
 
 	border:solid thin #00cc00;
 	color:#00cc00;
-	font-size:0.9em;
+	font-size:1.2em;
 	resize: none;
 
 	width:60%;
 
+
+}
+
+#inputarea{ 
+
+	font-size:1.2em;
 
 }
 
@@ -424,6 +476,53 @@ textarea{
 		
 
 
+}
+
+#summary-text{ 
+
+	padding:10px;
+	font-family:anonymouspro;
+	align-items:center;
+	float:center;
+	margin-left:10%;
+	margin-right:10%;
+	color: #EC7063;
+		
+
+
+}
+
+#mpost-text{ 
+
+	padding:10px;
+	font-family:Helvetica;
+	align-items:center;
+	float:center;
+	margin-left:10%;
+	margin-right:10%;
+	color: #00FF00;
+		
+
+
+}
+
+#change-text a{ 
+
+	align-items:center;
+	float:center;
+	margin-left:12%;
+	margin-right:10%;
+	font-family:Helvetica;
+	text-align:center;
+	color: red; 
+	text-decoration: none;
+		
+
+
+}
+
+#change-text a:hover{ 
+	color: #9932CC
 }
 
 @media (max-device-width: 1000px){
@@ -455,31 +554,33 @@ textarea{
 	border: 2px solid green;
 
 }
+
 .text-stuff {
 
 	text-align:center;
-	display:block;
+} 
 
-
-}
 .text-stuff input[type=text]{
 
-
 	border: thin solid #00FF00;
-	background-color: black;
-	color: #00FF00;
-	
-}
+	background-color:black;
+	align-items: top;
+	color: #00cc00;
+
+}	
 
 .text-stuff textarea{ 
 
-	border: thin solid #00FF00;
-	background-color: black;
-	color: #00FF00;
-	vertical-align:top;
+	background-color:black;
+	
+}	
 
+.label{ 
 
+	display: none; 
 }
+
+
 
 .submit { 
 
@@ -520,6 +621,7 @@ textarea{
 
 	color:#00FF00;
 	font-family: uwch;
+
 }
 
 .book-main{
@@ -602,14 +704,42 @@ textarea{
 
 
 	text-align:center;
+
 	
 	
 	
 	 }
+.reveal-contact{ 
+	
+	font-family:anonymouspro;
+	color:#00FF00;
+	font-size: 1.5em;
+	padding-top:300px;
+
+
+}
+
+a.reveal-contact:link{
+	
+	color: green;
+	padding-top:320px;
+
+
+}
+
+.reveal-contact a:link{
+    color:red;
+	text-decoration: none;
+	font-size:0.8em; 
+	padding:20px;
+}
+
+
+
 
 .contact{ 
 
-
+	
 	font-family:qua;
 	color:white;
 	font-size: 2em;

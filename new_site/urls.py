@@ -21,4 +21,5 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('', include('new_sites.urls')),
 
-]
+]              
+                    

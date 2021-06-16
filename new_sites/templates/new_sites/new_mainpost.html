@@ -5,13 +5,13 @@
 <div class = 'text-stuff'>
 <p> Add Topic: </p>
 
-    <form action = "{% url 'new_sites:new_topichome2'%}" method = 'post' enctype = 'multipart/form-data'>
+    <form action = "{% url 'new_sites:new_post'%}" method = 'post' enctype = 'multipart/form-data'>
 
         {%csrf_token%}
 
         {{form.as_p}}
 
-        <button class = 'submit'>Add topic</button>
+        <button class = 'submit'>Add Post</button>
 
     </form>
 

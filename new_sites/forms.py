@@ -1,16 +1,16 @@
 from django import forms
 
-from .models import Topic, Book, TopicHome, TopicHome2, TopicPost
+from .models import Videos, Book, TopicHome, TopicPost, MainPost 
 
-class TopicForm(forms.ModelForm):
+class VideoForm(forms.ModelForm):
 
     class Meta: 
 
-        model = Topic
-        fields =['title', 'text', 'image','urllink']
+        model = Videos
+        fields =['title', 'text', 'urllink']
 
     def __init__(self, *args, **kwargs):
-        super(TopicForm, self).__init__(*args, **kwargs)
+        super(VideoForm, self).__init__(*args, **kwargs)
         self.fields['title'].widget.attrs['placeholder'] = 'Enter title here'
         self.fields['text'].widget.attrs['placeholder'] = 'Enter text here'
 
@@ -26,17 +26,21 @@ class TopicHomeForm(forms.ModelForm):
         self.fields['title'].widget.attrs['placeholder'] = 'Enter title here'
         self.fields['text'].widget.attrs['placeholder'] = 'Enter text here'    
 
-class TopicHomeForm2(forms.ModelForm):
+#Form for posts 
+class MainPostForm(forms.ModelForm):
 
+   
+    
+    title = forms.CharField(required = True, label ='', widget=forms.TextInput(attrs={'placeholder': 'Enter Title Here', 'class':'inputarea'}))
+    summary = forms.CharField(widget = forms.Textarea(attrs ={'placeholder': "Summary Here"}), label = '',) 
+    text = forms.CharField(widget = forms.Textarea(attrs ={'placeholder': "Body Paragraph Here"}), label = '',) 
+    
+ 
     class Meta: 
+        model = MainPost
+        fields =['title', 'summary', 'text', 'image','urllink']
 
-        model = TopicHome2
-        fields =['title', 'text', 'image','urllink']
 
-    def __init__(self, *args, **kwargs):
-        super(TopicHomeForm2, self).__init__(*args, **kwargs)
-        self.fields['title'].widget.attrs['placeholder'] = 'Enter title here'
-        self.fields['text'].widget.attrs['placeholder'] = 'Enter text here'    
 
 
 class TopicPostForm(forms.ModelForm):
@@ -70,3 +74,4 @@ class ContactForm(forms.Form):
 
 	)
 
+ 

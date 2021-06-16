@@ -49,7 +49,7 @@ window.onload = function(){start();}
 
             {%if topic.owner == request.user and user.is_authenticated %}
             <div id = 'mentry-text'>
-                <a href = "{%url 'new_sites:topic_edit' topic.id%}">Edit entry</a>
+            
                 <a href = "{%url 'new_sites:delete_topichome' topic.id%}">Delete topic</a>
             </div>
             {% endif %}

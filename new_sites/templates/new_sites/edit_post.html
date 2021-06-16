@@ -6,7 +6,7 @@
 
 
         <p>Edit Topic:</p>
-            <form action = "{% url 'new_sites:topic_edit' topic.id%}" method = 'post'>
+            <form action = "{% url 'new_sites:post_edit' topic.id%}" method = 'post'>
 
                 {%csrf_token%}
                 {{form.as_p}}

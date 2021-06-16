@@ -3,11 +3,10 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Topic(models.Model):
+class Videos(models.Model):
 
     title = models.CharField(max_length = 200)
     text = models.TextField()
-    image = models.ImageField(upload_to = 'image/set/', null = True, blank = True)
     urllink = models.CharField(max_length=5000, null = True, blank = True)
 
     date_added = models.DateTimeField(auto_now_add = True)
@@ -32,10 +31,11 @@ class TopicHome(models.Model):
         return self.title[:50]
 
 
-class TopicHome2(models.Model):
+class MainPost(models.Model):
      
     title = models.CharField(max_length = 200)
     text = models.TextField()
+    summary = models.TextField() 
     image = models.ImageField(upload_to = 'image/set/', null = True, blank = True)
     urllink = models.CharField(max_length=5000, null = True, blank = True)
 
@@ -50,6 +50,7 @@ class TopicPost(models.Model):
 
     title = models.CharField(max_length=200)
     text = models.TextField()
+    summary = models.TextField() 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     image = models.ImageField(upload_to = 'image/set/', null = True, blank = True)

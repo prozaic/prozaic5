@@ -10,8 +10,8 @@ from django.core.mail import send_mail
 
 from django.forms import modelformset_factory
 
-from .models import Topic, Book, TopicHome, TopicPost, TopicHome2
-from .forms import TopicForm, BookForm, ContactForm, TopicHomeForm, TopicHomeForm2, TopicPostForm
+from .models import Videos, Book, TopicPost, TopicHome 
+from .forms import VideoForm, BookForm, ContactForm, MainPostForm, TopicPostForm, TopicHomeForm, MainPost 
 
 import os
 from sendgrid import SendGridAPIClient
@@ -21,8 +21,7 @@ from sendgrid.helpers.mail import Mail
 
 
 
-# Create your views here.
-
+#Home page 
 def index(request):
 
     topics = TopicHome.objects.all().order_by('-id')[:10]
@@ -30,12 +29,12 @@ def index(request):
 
     return render(request, 'new_sites/index.html', context)
 
-def topics(request):
+#List all of the videos 
+def videos(request):
 
-    topics = Topic.objects.all().order_by('-id')[:10]
+    topics = Videos.objects.all().order_by('-id')[:10]
     context = {'topics': topics}
-
-    return render(request, 'new_sites/topics.html', context)
+    return render(request, 'new_sites/videos.html', context)
 
 
 @login_required
@@ -53,7 +52,7 @@ def topic(request, topic_id):
 def new_topic(request):
 
     if request.method == "POST":
-       form = TopicForm(request.POST, request.FILES)
+       form = VideoForm(request.POST, request.FILES)
        
        if form.is_valid():
             new_topic = form.save(commit = False)
@@ -61,9 +60,9 @@ def new_topic(request):
             new_topic.save()
 
             form.save()
-            return redirect('new_sites:topics')
+            return redirect('new_sites:videos')
     else:
-        form = TopicForm()
+        form = VideoForm()
         
     context = {'form':form}
     return render(request, 'new_sites/new_topic.html', context)
@@ -86,12 +85,13 @@ def new_topichome(request):
         
     context = {'form':form}
     return render(request, 'new_sites/new_topichome.html', context)
-
+    
+#Adding a new post 
 @login_required
-def new_topichome2(request):
+def new_post(request):
 
     if request.method == "POST":
-       form = TopicHomeForm2(request.POST, request.FILES)
+       form = MainPostForm(request.POST, request.FILES)
     
        
        if form.is_valid():
@@ -102,31 +102,12 @@ def new_topichome2(request):
             form.save()
             return redirect('new_sites:index')
     else:
-        form = TopicHomeForm2()
+        form = MainPostForm()
         
     context = {'form':form}
-    return render(request, 'new_sites/new_topichome2.html', context)
+    return render(request, 'new_sites/new_mainpost.html', context)
         
    
-
-@login_required
-def new_post(request):
-    if request.method == "POST":
-       form = TopicPostForm(request.POST, request.FILES)
-       
-       if form.is_valid():
-            new_post = form.save(commit = False)
-            new_topic.owner = request.user
-            new_post.save()
-
-            form.save()
-            return redirect('new_sites:index')
-    else:
-        form = TopicPostForm()
-        
-    context = {'form':form}
-    return render(request, 'new_sites/new_post.html', context)
-
 
 
 @login_required
@@ -171,18 +152,18 @@ def vupload(request):
 @login_required
 def edit_entry(request, entry_id):
 
-    entry=Entry.objects.get(id=entry_id)
+    entry=Videos.objects.get(id=entry_id)
     topic = entry.topic
     if topic.owner != request.user:
         raise Http404
 
     if request.method != 'POST':
 
-        form = EntryForm(instance = entry)
+        form = VideoForm(instance = entry)
 
     else:
 
-        form = EntryForm(instance = entry, data = request.POST)
+        form = VideoForm(instance = entry, data = request.POST)
 
         if form.is_valid():
             form.save()
@@ -193,25 +174,45 @@ def edit_entry(request, entry_id):
 
     return render(request, 'new_sites/edit_entry.html', context)
 
+#Edit Video
 @login_required
-def topic_edit(request, topic_id):
-    topic = Topic.objects.get(id=topic_id)
+def video_edit(request, video_id):
+    topic = Videos.objects.get(id=video_id)
 
     if request.method != 'POST':
 
-        form = TopicForm(instance=topic)
+        form = VideoForm(instance=topic)
 
     else: 
 
-        form = TopicForm(instance = topic, data = request.POST)
+        form = VideoForm(instance = topic, data = request.POST)
         if form.is_valid():
             form.save()
             
-            return redirect('new_sites:topics')
+            return redirect('new_sites:videos')
+    
+    context = {'topic': topic, 'form':form}
+    return render(request, 'new_sites/video_edit.html', context)
+
+@login_required
+def post_edit(request, topic_id):
+    topic = MainPost.objects.get(id=topic_id)
+
+    if request.method != 'POST':
+
+        form = MainPostForm(instance=topic)
+
+    else: 
+
+        form = MainPostForm(instance = topic, data = request.POST)
+        if form.is_valid():
+            form.save()
+            
+            return redirect('new_sites:post_list')
     
     context = {'topic': topic, 'form':form}
 
-    return render(request, 'new_sites/topic_edit.html', context)
+    return render(request, 'new_sites/edit_post.html', context)
     
 
 @login_required
@@ -234,9 +235,11 @@ def book_list(request):
     })
 
 
+
+#Lists all of the posts 
 def post_list(request):
 
-    topics = TopicHome2.objects.all().order_by('-id')[:10]
+    topics = MainPost.objects.all().order_by('-id')[:10]
     context = {'topics': topics}
     
     return render(request, 'new_sites/post_list.html', context)
@@ -291,18 +294,19 @@ def morebooks(request):
 
     })
 
-
+#Delete Video 
 @login_required
-def delete_topic(request, topic_id):
-    topic = Topic.objects.get(id = topic_id) 
+def delete_video(request, topic_id):
+    topic = Videos.objects.get(id = topic_id) 
     topic.delete()
     
-    return redirect('new_sites:topics')
+    return redirect('new_sites:videos')
 
+#Delete's the posts 
 @login_required
 def delete_post(request, topic_id):
 
-    topic = TopicHome2.objects.get(id = topic_id) 
+    topic = MainPost.objects.get(id = topic_id) 
     topic.delete()
     
     return redirect('new_sites:post_list')

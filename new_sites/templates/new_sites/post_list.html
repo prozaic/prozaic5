@@ -1,7 +1,5 @@
 {%extends 'new_sites/base.html'%}
 
-
-
 {% block content%}
 
         {%for topic in topics%}
@@ -11,6 +9,7 @@
             <div id = 'post-title'>
                 {{topic.title}} 
             </div>
+    
             <style>  
                 .content {
                     display: block;
@@ -41,43 +40,29 @@
                 /* style inspired by Thiago Teles Pereira @thiagoteles */   
             </style> 
 
-
-
-
-
-
-
+        
 
             <div id = 'summary-text'>
               <!--  <p> {{topic.summary|linebreaks}} </p>--> 
 
-                <script>
-                    var i = 0;
-                   var txt = '{{topic.summary}}';
-               
-                       function typeWriter() {
-                       if (i < txt.length) {
-                           document.getElementsByClassName('js-typewrite')[0].innerHTML += txt.charAt(i);
+    
+            <p class="content">
+                <span class="typewrite anim-typewrite js-typewrite">{{ topic.summary }}</span>
+             </p>
+
+            <script>
+                document.getElementsByClassName('js-typewrite')[0].innerHTML += txt.charAt(i);
                            i++;
                            setTimeout(typeWriter, 65);
                        }
                        }
                
                        setTimeout(typeWriter, 1000);
-                   </script>
-           
-               
-               <body>
-               
-                   <p class="content">
-                       <span class="typewrite anim-typewrite js-typewrite"></span>
-                   </p>
-               
-               </body>
+            </script>
+            
        
             </div>
-        
-
+     
 
 
 

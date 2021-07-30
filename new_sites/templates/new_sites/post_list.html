@@ -51,13 +51,11 @@
              </p>
 
             <script>
-                document.getElementsByClassName('js-typewrite')[0].innerHTML += txt.charAt(i);
-                           i++;
-                           setTimeout(typeWriter, 65);
-                       }
-                       }
-               
-                       setTimeout(typeWriter, 1000);
+                document.querySelectorAll('.js-typewrite').each(function() {
+
+                
+                // Do the typewriting animation here
+                })
             </script>
             
        
@@ -70,6 +68,7 @@
 
             <div id = 'mpost-text'>
                 {{topic.text|linebreaks}}
+                <p class="time" >{{topic.date_added|date:'M d, Y'}}</p>
             </div>
 
         

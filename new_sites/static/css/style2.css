@@ -484,8 +484,8 @@ textarea{
 	font-family:anonymouspro;
 	align-items:center;
 	float:center;
-	margin-left:10%;
-	margin-right:10%;
+	margin-left:1%;
+	margin-right:1%;
 	color: #EC7063;
 		
 
@@ -494,13 +494,29 @@ textarea{
 
 #mpost-text{ 
 
-	padding:10px;
+	padding:1px;
+	padding-bottom:10px;
 	font-family:Helvetica;
 	align-items:center;
 	float:center;
-	margin-left:10%;
-	margin-right:10%;
+	margin-left:1%;
+	margin-right:1%;
 	color: #00FF00;
+		
+
+
+}
+
+p.time{ 
+
+	padding:1px;
+	padding-bottom:10px;
+	font-family:anonymouspro;
+	align-items: right; 
+	margin-left:75%;
+	margin-right:1%;
+	color: red;
+	
 		
 
 

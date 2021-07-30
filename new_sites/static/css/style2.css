@@ -480,7 +480,8 @@ textarea{
 
 #summary-text{ 
 
-	padding:10px;
+	padding:1px;
+	padding-bottom:10px; 
 	font-family:anonymouspro;
 	align-items:center;
 	float:center;

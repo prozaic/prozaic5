@@ -203,3 +203,6 @@ STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 import mimetypes
 mimetypes.add_type("text/css", ".css", True)
+
+django_heroku.config(locals())
+DATABASES['default']['CONN_MAX_AGE'] = 

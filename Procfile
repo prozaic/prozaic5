@@ -1,1 +1,1 @@
-web: gunicorn new_site.wsgi --log-fil -
+web: bin/start-pgbouncer-stunnel gunicorn new_site.wsgi

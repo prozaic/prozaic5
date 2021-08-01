@@ -482,6 +482,7 @@ textarea{
 
 	padding:1px;
 	padding-bottom:10px; 
+	padding-top:10px;
 	font-family:anonymouspro;
 	align-items:center;
 	float:center;
@@ -513,9 +514,8 @@ p.time{
 	padding:1px;
 	padding-bottom:10px;
 	font-family:anonymouspro;
-	align-items: right; 
-	margin-left:75%;
-	margin-right:1%;
+	align-items: center;
+	text-align:center;
 	color: red;
 	
 		
@@ -527,8 +527,6 @@ p.time{
 
 	align-items:center;
 	float:center;
-	margin-left:12%;
-	margin-right:10%;
 	font-family:Helvetica;
 	text-align:center;
 	color: red; 
@@ -730,7 +728,7 @@ p.time{
 	
 	font-family:anonymouspro;
 	color:#00FF00;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	padding-top:300px;
 
 
@@ -759,7 +757,7 @@ a.reveal-contact:link{
 	
 	font-family:qua;
 	color:white;
-	font-size: 2em;
+	font-size: 1.5em;
 }
 
 .login-form{

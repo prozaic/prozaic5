@@ -28,7 +28,7 @@ class TopicHome(models.Model):
 
     def __str__(self):
 
-        return self.title[:50]
+        return self.title[:52]
 
 
 class MainPost(models.Model):

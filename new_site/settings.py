@@ -90,8 +90,8 @@ WSGI_APPLICATION = 'new_site.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wfqjzvle',
+        'ENGINE':'django.db.backends.postgresql',
+        'NAME':'wfqjzvle',
         'USER':'wfqjzvle',
         'PASSWORD':'lKBDZIJnY1vKbwCL2dP41VRW4O6bGj86',
         'HOST':'batyr.db.elephantsql.com',

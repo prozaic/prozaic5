@@ -196,11 +196,11 @@ body {
 	border-bottom: thin solid #00FF00;
 
 
-	padding-left:10%;
-	padding-right:10%;
+	padding-left:7%;
+	padding-right:7%;
 
-	margin-left:20%;
-	margin-right:20%;
+	margin-left:8%;
+	margin-right:8%;
 
 }
 
@@ -272,8 +272,8 @@ body {
 }
 
 .booklist{
-	margin-left:10%;
-	margin-right:10%;
+	margin-left:5%;
+	margin-right:5%;
 
 	justify-content:center;
 	color:#00FF00;
@@ -540,7 +540,7 @@ p.time{
 	color: #9932CC
 }
 
-@media (max-device-width: 1000px){
+@media (max-device-width: 1100px){
 
 
 	#mentry-text{

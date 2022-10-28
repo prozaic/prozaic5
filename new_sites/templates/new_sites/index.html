@@ -24,13 +24,14 @@ window.onload = function(){start();}
             {%if topic.image%} 
                 <img id="hide" src="{{topic.image.url}}" alt = "{{topic.title}}" width="29" height="39">
             {%endif%}
+            
 
             
         </div>
 
         <div class="mid-container">
         	{%include 'new_sites/midtext.html'%}
-        </div>
+    
                 
             {% if topic.urllink%}
              <div class = 'video-link'>

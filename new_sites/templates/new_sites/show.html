@@ -1,0 +1,49 @@
+{%extends "new_sites/base.html"%}
+
+{% block content%}
+
+<p>Topics</p>
+
+<h1> Hello World </h1>
+<form>
+    <input type='text' />
+
+    <input type='sumbit' /> 
+
+</form> 
+
+<!-- 
+    {%for topic in topics%}
+    <div class = 'top-container2'>
+
+        <div id = 'top-title'>
+            {{topic.title}}
+        </div>
+        
+   
+
+    
+        
+        <div id = 'mentry-text'>
+            {{topic.text|linebreaks}}
+        </div>
+        
+     
+    </div>
+    {%empty%}
+         <li>No topics have been added yet.</li>
+    {%endfor%}
+
+
+{%if user.is_authenticated %}
+
+<div class = 'add-book '>
+    <a href="{% url 'new_sites:new_topic'%}">Add Video</a>
+   {# <a href="{% url 'new_sites:vupload'%}">Upload Video</a>#} 
+
+</div>
+
+{%endif%}
+-->
+
+{%endblock%}

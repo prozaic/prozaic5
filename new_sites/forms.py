@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Videos, Book, TopicHome, TopicPost, MainPost 
+from .models import Videos, Book, TopicHome, TopicPost, MainPost, TopicPost2
 
 class VideoForm(forms.ModelForm):
 
@@ -54,6 +54,18 @@ class TopicPostForm(forms.ModelForm):
         super(TopicPostForm, self).__init__(*args, **kwargs)
         self.fields['title'].widget.attrs['placeholder'] = 'Enter title here'
         
+
+class TopicPostForm2(forms.ModelForm):
+
+    class Meta: 
+
+        model = TopicPost2
+        fields =['title']
+
+    def __init__(self, *args, **kwargs):
+        super(TopicPostForm2, self).__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs['placeholder'] = 'Enter title here'
+
 class BookForm(forms.ModelForm):
 
     class Meta:

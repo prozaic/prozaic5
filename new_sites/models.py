@@ -59,6 +59,17 @@ class TopicPost(models.Model):
 
         return self.title 
 
+class TopicPost2(models.Model):
+
+    title = models.CharField(max_length=200)
+
+
+
+
+    def _str_(self):
+
+        return self.title 
+
 
 
 class Book(models.Model):

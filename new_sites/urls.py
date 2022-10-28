@@ -42,7 +42,16 @@ urlpatterns = [
 
     path('books/uploads/more', views.morebooks, name = 'morebooks'),
 
-    path('contacts/', views.contact, name = 'contact')
+    path('contacts/', views.contact, name = 'contact'),
+    
+    path('search_word2/', views.search_word2, name = 'search_word2'),
+
+    path('search_word/', views.search_word, name = 'search_word'),
+
+    path('show/', views.show, name='show'), 
+
+    path('article/', views.article_view, name='article_view')
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

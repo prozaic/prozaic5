@@ -10,12 +10,17 @@ from django.core.mail import send_mail
 
 from django.forms import modelformset_factory
 
-from .models import Videos, Book, TopicPost, TopicHome 
-from .forms import VideoForm, BookForm, ContactForm, MainPostForm, TopicPostForm, TopicHomeForm, MainPost 
+from .models import Videos, Book, TopicPost, TopicHome, TopicPost2
+from .forms import VideoForm, BookForm, ContactForm, MainPostForm, TopicPostForm, TopicHomeForm, MainPost, TopicPostForm2
 
 import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
+
+import json 
+from difflib import get_close_matches 
+
+
 
 
 
@@ -35,6 +40,13 @@ def videos(request):
     topics = Videos.objects.all().order_by('-id')[:10]
     context = {'topics': topics}
     return render(request, 'new_sites/videos.html', context)
+
+
+def show(request):
+
+    topics = TopicPost2.objects.all().order_by('-id')[:10]
+    context = {'topics': topics}
+    return render(request, 'new_sites/show.html', context)
 
 
 @login_required
@@ -106,9 +118,43 @@ def new_post(request):
         
     context = {'form':form}
     return render(request, 'new_sites/new_mainpost.html', context)
-        
-   
 
+
+        
+def search_word(request): 
+
+
+    with open('new_sites/static/css/data.json', 'r') as f: 
+        data = json.load(f)
+    word = TopicPost2.objects.all().order_by('-id')[:10]
+    if word in data:
+        return data[word]
+
+
+
+def search_word2(request): 
+    if request.method == "POST":
+        form = TopicPostForm2(request.POST, request.FILES)
+
+        if form.is_valid():
+            new_topic = form.save(commit = False)
+            new_topic.save()
+
+            form.save()
+            return redirect('new_sites:search_word')
+
+        else:  
+            form = TopicPostForm2()
+
+        context = {'form':form}
+        return render(request, 'new_sites/searchdic.html', context)
+
+def article_view(request): 
+    print(request.GET)
+    query_dict = request.GET #this is a dictionary 
+    query = query_dict.get("q")
+    context = {} 
+    return render(request, "new_sites/search.html", context=context)
 
 @login_required
 def new_topicpost(request):

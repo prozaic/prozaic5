@@ -1,0 +1,32 @@
+{%extends 'new_sites/base.html'%}
+
+{%block content%}
+<div class = 'booklist'>
+    
+
+            
+        <div class = 'book-order'>
+
+            {% if object %}
+
+            <h1>{{object.title}}</h1>
+            <p>{{object.content}}</p>
+            
+            {% endif %}
+          
+        </div>
+     
+        
+
+</div>
+
+        
+{%if user.is_authenticated %}
+
+
+<div class = 'add-book '>
+    <a href="{% url 'new_sites:upload_book'%}">Add New Book</a>
+</div>
+{%endif%}
+
+{%endblock content%}

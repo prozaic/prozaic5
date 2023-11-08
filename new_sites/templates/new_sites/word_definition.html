@@ -1,0 +1,32 @@
+{% extends "new_sites/base.html" %}
+
+
+{% load static %}
+
+
+{% block content %}
+    <div class = 'text-stuff'> 
+        <p>Word Definitions</p>
+        <form action="{% url 'new_sites:word_definition' %}" method="get">
+            <input type="text" name="q" value="{{ word }}" placeholder="Enter a word" />
+            <input class = 'submit2' type="submit" value="SEARCH\\" />
+        </form>
+    </div>
+<div id = 'summary-text2'>
+    {% if definitions %}
+
+        <h2>Definition for "{{ word }}":</h2>
+        
+        <span class="loader"></span>
+        
+        <span class="typewrite anim-typewrite js-typewrite">{{ definitions | linebreaksbr }}</span>
+        <p class="content">
+
+        </p>
+
+    {% elif not definitions %}
+        <h3> Please type in a word that you would like to see the definitions for</h3>
+    {% endif %}
+    {% endblock content %}
+</div>
+

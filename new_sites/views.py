@@ -13,6 +13,7 @@ from django.forms import modelformset_factory
 from .models import Videos, Book, TopicPost, TopicHome, TopicPost2
 from .forms import VideoForm, BookForm, ContactForm, MainPostForm, TopicPostForm, TopicHomeForm, MainPost, TopicPostForm2
 
+
 import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
@@ -20,7 +21,8 @@ from sendgrid.helpers.mail import Mail
 import json 
 from difflib import get_close_matches 
 
-
+import subprocess 
+import requests 
 
 
 
@@ -33,6 +35,64 @@ def index(request):
     context = {'topics': topics}
 
     return render(request, 'new_sites/index.html', context)
+
+#def word_definition(request):
+    word = request.GET.get('q', '')  # Get the 'q' parameter from the URL
+
+    if word:
+        # Define the URL of your EC2 instance
+        ec2_ip = 'http://18.234.63.98'
+
+        # Specify the endpoint or route on your EC2 instance
+        endpoint = '/dictionary/pythondefinition.py'
+
+
+        # Build the full URL
+        url = ec2_ip + endpoint
+
+        # Make an HTTP GET request to your EC2 instance
+        response = requests.get(url, params={'word': word})
+
+        if response.status_code == 200:
+            definitions = response.text
+        else:
+            #Handle the case when the request to the EC2 instance fails
+            definitions = "Error: Unable to fetch definitions."
+    else:
+        definitions = ""
+
+    return render(request, 'new_sites/word_definition.html', {'word': word, 'definitions': definitions})
+
+#def word_definition(request):
+    word = request.GET.get('q', '')  # Get the 'q' parameter from the URL
+
+    if word:
+        ec2_ip = '18.234.63.98'
+        # Call the modified external Python script to get word definitions
+        ec2_path = '/home/ec2-user/dictionary/pythondefinition.py'
+
+
+        cmd = ['ssh', f'ec2-user@{ec2_ip}', 'python3', ec2_path, word]
+        result = subprocess.run(cmd, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        definitions = result.stdout
+    else:
+        definitions = ""
+
+    return render(request, 'new_sites/word_definition.html', {'word': word, 'definitions': definitions})
+
+
+def word_definition(request):
+    word = request.GET.get('q', '')  # Get the 'q' parameter from the URL
+
+    if word:
+        # Call the modified external Python script to get word definitions
+        cmd = ['python3', '/home/ec2-user/prozaicgit/prozaic5/pythondefinition.py', word]
+        result = subprocess.run(cmd, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        definitions = result.stdout
+    else:
+        definitions = ""
+
+    return render(request, 'new_sites/word_definition.html', {'word': word, 'definitions': definitions})
 
 #List all of the videos 
 def videos(request):

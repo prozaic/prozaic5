@@ -46,7 +46,7 @@ urlpatterns = [
     
     path('search_word2/', views.search_word2, name = 'search_word2'),
 
-    path('search_word/', views.search_word, name = 'search_word'),
+    path('word_definition/', views.word_definition, name = 'word_definition'),
 
     path('show/', views.show, name='show'), 
 

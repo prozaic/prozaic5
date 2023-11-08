@@ -26,7 +26,7 @@ SECRET_KEY = 'yd+#d2j-74kc-rz4gw@_sn%i6m0o4px_nb#v5**gz$-%rlm_-a'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['18.234.63.98']
 
 
 
@@ -143,10 +143,13 @@ USE_TZ = True
 
 
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'),
 ]
+
+
 
 STATIC_URL = '/media/static/'
 
@@ -185,17 +188,17 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 
-AWS_LOCATION = 'static'
-AWS_DEFAULT_ACL = None
+#AWS_LOCATION = 'static'
+#AWS_DEFAULT_ACL = None
 
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
+#AWS_S3_FILE_OVERWRITE = False
+#AWS_DEFAULT_ACL = None
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION) 
+#AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+#STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION) 
 
 
 import mimetypes

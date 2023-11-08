@@ -15,29 +15,51 @@
 
 window.onload = function(){start();} 
     </script>
+
+    
 <body>
+
+    
         {%for topic in topics%}
 
-        <div class = 'top-container'>
+        
+        <div class = 'top-container2'>
+ 
+            <p> appledo22asn2eky</p>
+          
+            <!--
+                <img id="myimage" src="{% static 'css/SFrozen.jpg' %}" style="display:none" alt = "{{topic.title}}" >
+                {%if topic.image%} 
+                    <img id="hide" src="{{topic.image.url}}" alt = "{{topic.title}}" width="29" height="39">
+                {%endif%}
+              <div class="loader2">
 
-            <img id="myimage" src="{% static 'css/SFrozen.jpg' %}" style="display:none" alt = "{{topic.title}}" >
-            {%if topic.image%} 
-                <img id="hide" src="{{topic.image.url}}" alt = "{{topic.title}}" width="29" height="39">
-            {%endif%}
             
-
+            </div>
+            -->
             
         </div>
 
         <div class="mid-container">
+            
         	{%include 'new_sites/midtext.html'%}
     
-                
+            <span class="loader2">
+                <div class="cube">
+                    <div class="face"></div>
+                    <div class="face"></div>
+                    <div class="face"></div>
+                    <div class="face"></div>
+                    <div class="face"></div>
+                    <div class="face"></div>
+                </div>
+            </span>
             {% if topic.urllink%}
              <div class = 'video-link'>
                   <iframe width="{{ 480 }}" height="{{ 320 }}" src="{{ topic.urllink }}" frameborder="0" allowfullscreen>
                   </iframe>
              </div>
+             
             {%endif%}
 
             {% if topic.urllink%}
@@ -73,7 +95,8 @@ window.onload = function(){start();}
 
     {%endif%}
 
-    {%endblock content%}
 
 </body>
 </html>
+
+{%endblock content%}
